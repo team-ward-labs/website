@@ -3,35 +3,23 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+I'm Joseph Ward — a PhD organic chemist by training, software guy by inclination, and Director of Digital Infrastructure at the University of Michigan in Ann Arbor.
 
-![Astro Paper](public/astropaper-og.jpg)
+This site is where I write about the spaces in between: homelab projects, custom tooling I've built for chemistry teaching labs, hobby distilling, and whatever else lands on my workbench. The tagline _From Programming to Distilling_ is genuine — both happen here.
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+## Day Job
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+At U-M I run instructional laboratory services for 6,800+ students a year, manage staff and budgets, and architect the digital infrastructure that keeps it running — including a custom platform called **ChemStands** that automates inventory, lab scheduling, and internal recharge activities. In 2026 I was selected as an LSA Staff AI Steward to help guide the ethical application of generative AI tools across the college.
 
-## Features
+## Volunteer Work
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+I serve as **Treasurer** and **CTO / Lead Developer** for the [ACS Division of Organic Chemistry](https://organicdivision.org), where I manage a multi-million-dollar budget and a 2,500-page web footprint reaching over a million users a year. The Division has earned two ChemLuminary Awards under the web initiatives I've led — most recently the 2025 Outstanding Continuing Communications Program Award. I also serve on the Board of Directors and as Lead Technical Officer for [_Organic Reactions_](https://organicreactions.org).
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+## Background
 
-and so much more.
+PhD in Organic Chemistry from Michigan State University (2002) — total synthesis of the proposed structure of amphidinolide A. BS in Chemistry (Cum Laude) from Lawrence Technological University (1996). Before U-M I taught general chemistry at Michigan State, and spent a decade as a tenured Associate Professor of Chemistry at Rockford University in Illinois.
 
-## Show your support
+## Contact
 
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
-
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
-
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
-
-Kyay zuu! 🙏🏼
+Email: [jward@teamwardlabs.com](mailto:jward@teamwardlabs.com)  
+GitHub: [team-ward-labs](https://github.com/team-ward-labs)
