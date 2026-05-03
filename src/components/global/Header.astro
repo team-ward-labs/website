@@ -1,0 +1,37 @@
+---
+// assets
+import { Image } from "astro:assets";
+import logo from "../../assets/images/twl-square.png";
+
+// components
+import Text from "../elements/Text.astro";
+import NavBar from "./NavBar.astro";
+import SocialLinks from "../elements/SocialLinks.astro";
+
+// header content -> modify here!
+const {
+    role = "PhD chemist · maker · homelabber",
+    name = "Team Ward Labs",
+    status = "From Programming to Distilling"
+} = Astro.props;
+
+---
+
+<header class="flex flex-col gap-24 md:pt-56 pt-16 bg-base-950 md:sticky md:top-0 z-50">
+    <div class="md:px-32 px-16 flex md:flex-row flex-col gap-16 items-center">
+        <Image src={logo} alt="Team Ward Labs" width={200} height={200} densities={[1,1.5,2]} loading="eager" class="object-cover object-center w-25 h-25 drop-shadow-md" />
+        <div class="flex md:flex-row flex-col gap-24 justify-between items-center w-full">
+            <div class="flex flex-col gap-24 md:items-start justify-center items-center">
+                <div class="flex flex-col md:text-left text-center">
+                    <Text variant={'normal'} class="text-base-700">// {role}</Text>
+                    <Text variant={'xl'}>{name}</Text>
+                </div>
+                <SocialLinks />
+            </div>
+            <div class="bg-base-950 drop-shadow-md p-8">
+                <Text variant={'sm'} class="text-base-200">{status}</Text>
+            </div>
+        </div>
+    </div>
+    <NavBar />
+</header>

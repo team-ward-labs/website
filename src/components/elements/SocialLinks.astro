@@ -1,0 +1,27 @@
+---
+// assets
+import Github from "../../assets/icons/Github.astro";
+
+const socials = [
+  { link: "https://github.com/team-ward-labs", icon: Github, label: "GitHub" },
+];
+---
+
+<div class="flex flex-row gap-24">
+  {
+    socials.map((social) => {
+      const Icon = social.icon;
+      return (
+        <a
+          href={social.link}
+          class="text-base-100 hover:text-base-300"
+          aria-label={social.label}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon width={20} height={20} fill="currentColor" />
+        </a>
+      );
+    })
+  }
+</div>

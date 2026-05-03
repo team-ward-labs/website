@@ -1,0 +1,30 @@
+---
+const pathname = Astro.url.pathname;
+// components
+import Link from "../elements/Link.astro"
+
+// content
+const nav = [
+    { title: "/home", href: "/" },
+    { title: "/projects", href: "/projects" },
+    { title: "/about", href: "/about" },
+    { title: "/writing", href: "/blog" },
+    { title: "/contact", href: "/contact" },
+]
+---
+
+<nav class="bg-base-900 flex flex-row flex-wrap sticky top-0">
+    {
+        nav.map((navLink) => {
+            const isActive = navLink.href === "/" ? pathname === "/" : pathname.startsWith(navLink.href);
+        return (
+            <Link
+                variant={'nav'} 
+                href={navLink.href}
+                text={navLink.title}
+                aria-current={isActive ? "page" : undefined}
+                class={isActive ? "bg-base-950 border-t-2 border-base-900" : "" }
+            />
+        )})
+    }
+</nav>

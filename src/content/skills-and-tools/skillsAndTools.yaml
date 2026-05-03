@@ -1,0 +1,42 @@
+- id: 1
+  title: Tools
+  items:
+    - WordPress
+    - PHP
+    - JavaScript
+    - Python
+    - Bash
+    - Docker
+    - Linux
+    - Cloudflare
+    - OpenTofu
+    - MariaDB
+    - Astro
+    - QuickBooks Online
+
+- id: 2
+  title: Skills
+  items:
+    - Lab Management
+    - Curriculum Design
+    - Accessibility (WCAG 2.1 AA)
+    - Web Architecture
+    - Budget Management
+    - Fundraising Operations
+    - AI Ethics
+
+- id: 3
+  title: Chemistry
+  items:
+    - Organic Synthesis
+    - Total Synthesis
+    - NMR Spectroscopy
+    - GC/MS
+    - Laboratory Safety
+
+- id: 4
+  title: Hobbies
+  items:
+    - Distilling
+    - Soap Making
+    - Homelab / Self-Hosting

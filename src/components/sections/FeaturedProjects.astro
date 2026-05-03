@@ -1,0 +1,30 @@
+---
+// components
+import Section from "../elements/Section.astro";
+import ProjectCard from "../elements/ProjectCard.astro";
+
+
+// content collection
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
+const featuredProjects = projects.filter(project => project.data.isFeatured === true);
+---
+
+<Section 
+    aria-label="Featured Projects"
+    title="Featured Projects"
+    titleHeading="Some of the work I've done"
+>
+    {
+            featuredProjects.map((project) => (
+                <ProjectCard 
+                    title={project.data.title}
+                    year={project.data.year}
+                    github={project.data.github}
+                    website={project.data.liveSite}
+                    description={project.data.description}
+                    tools={project.data.tools}
+                />
+            ))
+        }
+</Section>

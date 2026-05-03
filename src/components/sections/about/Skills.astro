@@ -1,0 +1,35 @@
+---
+// components
+import Section from "../../elements/Section.astro";
+import Tag from "../../elements/Tag.astro";
+import Text from "../../elements/Text.astro";
+
+// content collection
+import { getCollection } from "astro:content";
+const skillsAndTools = await getCollection("skillsAndTools");
+
+
+---
+
+<Section
+    aria-label="Tools and Skills"
+    title="Tools & Skills"
+    titleHeading="What I know and use in my day to day work"
+>
+    {
+        skillsAndTools.map((category) => (
+            <div class="border-2 border-base-900">
+                <div class="bg-base-900 p-16">
+                    <Text variant={'lg'}>{category.data.title}</Text>
+                </div>
+                <div class="p-16 flex flex-row flex-wrap gap-16">
+                    {
+                        category.data.items.map((tag) => (
+                            <Tag title={tag} />
+                        ))
+                    }
+                </div>
+            </div>
+        ))
+    }
+</Section>

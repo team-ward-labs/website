@@ -1,0 +1,54 @@
+---
+// assets
+import Calendar from "../../assets/icons/Calendar.astro";
+import Github from "../../assets/icons/Github.astro";
+import Website from "../../assets/icons/Website.astro";
+
+// components
+import Text from "../elements/Text.astro";
+import Heading from "../elements/Heading.astro";
+import Link from "../elements/Link.astro"
+import Tag from "../elements/Tag.astro";
+
+const { title, year, github, website, description, tools } = Astro.props;
+
+const links = [
+    { icon: Github, text: "Source", url: github },
+    { icon: Website, text: "Website", url: website },
+]
+---
+
+<div class="border-2 border-base-900">
+    <div class="bg-base-900 p-16 flex flex-col gap-16">
+        <Heading tagName="h3" tagSize="h3">{title}</Heading>
+        <div class="flex md:flex-row md:gap-32 flex-col gap-16">
+            <div class="flex flex-row gap-8 text-base-100 items-center">
+                <Calendar width={20} height={20} fill="currentColor" />
+                <Text variant={'sm'} class="text-base-500">{year}</Text>
+            </div>
+            {
+                links.map((link) => {
+                    const Icon = link.icon;
+                    return (
+                        link.url && (
+                            <div class="flex flex-row gap-8 text-base-100 items-center">
+                                <Icon width={20} height={20} fill="currentColor" />
+                                <Link variant={'inline'} href={link.url} text={link.text} newWindow />
+                            </div>
+                        )
+                    ) 
+                })
+            }
+        </div>
+    </div>
+    <div class="p-16 flex flex-col gap-16">
+        <Text variant={'normal'} class="text-base-400">{description}</Text>
+        <div class="flex flex-row gap-16 flex-wrap">
+        {
+            tools.map((tool: string) => (
+                <Tag title={tool} />
+            ))
+        }    
+        </div>
+    </div>
+</div>

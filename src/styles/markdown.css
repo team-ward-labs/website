@@ -1,0 +1,28 @@
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+    font-family: var(--font-pixels);
+    color: var(--color-base-200);
+}
+
+.markdown-content h2 { font-size: var(--text-24); text-transform: uppercase;}
+.markdown-content h3 { font-size: var(--text-20); text-transform: uppercase; }
+.markdown-content h4 { font-size: var(--text-20); text-transform: capitalize; }
+.markdown-content h5 { font-size: var(--text-16); text-transform: capitalize; }
+.markdown-content h5 { font-size: var(--text-14); text-transform: capitalize; }
+
+.markdown-content p {
+    font-family: var(--font-mono);
+    color: var(--color-base-400);
+    font-size: 1rem;
+    line-height: 150%;
+}
+
+.markdown-content a {
+    font-family: var(--font-pixels);
+    color: var(--color-base-100);
+    font-size: 20px;
+}

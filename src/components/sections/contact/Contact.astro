@@ -1,0 +1,21 @@
+---
+// components
+import Section from "../../elements/Section.astro";
+import Text from "../../elements/Text.astro";
+import Link from "../../elements/Link.astro";
+import SocialLinks from "../../elements/SocialLinks.astro";
+---
+
+<Section
+    aria-label="Contact"
+    title="Contact"
+    titleHeading="Let's connect!"
+>
+    <div class="flex flex-col gap-16 text-base-400">
+        <Text variant={'normal'}>Want to talk about something I've built, share an opportunity, or just say hello? I'd love to hear from you.</Text>
+        <Text variant={'normal'}>The fastest way to reach me is by email at <Link variant="inline" href="mailto:jward@teamwardlabs.com" text="jward@teamwardlabs.com" />.</Text>
+        <Text variant={'normal'}>You can also find me on GitHub:</Text>
+    </div>
+    
+    <SocialLinks />
+</Section>
