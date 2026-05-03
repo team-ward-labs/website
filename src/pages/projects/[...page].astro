@@ -1,0 +1,45 @@
+---
+// layout
+import Layout from "../../layout/Layout.astro"
+
+// components
+import Section from "../../components/elements/Section.astro";
+import ProjectCard from "../../components/elements/ProjectCard.astro";
+import Pagination from "../../components/elements/Pagination.astro";
+
+// routing
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+export const getStaticPaths = (async ({paginate}) => {
+    const projects = await getCollection("projects", ({data}) => !data.isDraft)
+    return paginate(projects, {pageSize: 6});
+}) satisfies GetStaticPaths;
+
+// props
+const { page } = Astro.props;
+---
+
+<Layout
+    title="All Projects"
+    description="All Projects for software engineer Andy Decker."
+    ogImage="" 
+>
+    <Section
+        title="Projects"
+        titleHeading="Things I've built, broken and experimented with"
+    >
+    {
+        page.data.map((project) => (
+            <ProjectCard 
+                    title={project.data.title}
+                    year={project.data.year}
+                    github={project.data.github}
+                    website={project.data.liveSite}
+                    description={project.data.description}
+                    tools={project.data.tools}
+            />
+        ))
+    }
+    <Pagination prev={page.url.prev} next={page.url.next} />
+    </Section>
+</Layout>

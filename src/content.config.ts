@@ -1,26 +1,65 @@
-import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
-import { SITE } from "@/config";
+import { glob, file } from 'astro/loaders';
+import { defineCollection } from 'astro/content/config';
+import { z } from 'astro/zod'
 
-export const BLOG_PATH = "src/data/blog";
-
-const blog = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: `./${BLOG_PATH}` }),
-  schema: ({ image }) =>
-    z.object({
-      author: z.string().default(SITE.author),
-      pubDatetime: z.date(),
-      modDatetime: z.date().optional().nullable(),
-      title: z.string(),
-      featured: z.boolean().optional(),
-      draft: z.boolean().optional(),
-      tags: z.array(z.string()).default(["others"]),
-      ogImage: image().or(z.string()).optional(),
-      description: z.string(),
-      canonicalURL: z.string().optional(),
-      hideEditPost: z.boolean().optional(),
-      timezone: z.string().optional(),
-    }),
+const projects = defineCollection({
+    loader: glob({ pattern: "src/content/projects/**/*.md" }),
+    schema: z.object({
+        id: z.number(),
+        title: z.string().max(80),
+        tools: z.preprocess(
+            (val) => (Array.isArray(val) ? val : [val]),
+            z.array(z.string())
+        ),
+        year: z.string().max(4),
+        liveSite: z.url().optional(),
+        github: z.url().optional(),
+        description: z.string().max(500),
+        isFeatured: z.boolean(),
+        isDraft: z.boolean()
+    })
 });
 
-export const collections = { blog };
+const blog = defineCollection({
+    loader: glob({ pattern: "src/content/blog/**/*.md" }),
+    schema: z.object({
+        id: z.number(),
+        slug: z.string().max(80),
+        title: z.string().max(120),
+        publishedDate: z.date(),
+        category: z.enum(["systems", "homelab", "chemistry", "ai", "productivity", "projects"]),
+        tags: z.array(z.string()).optional(),
+        description: z.string().max(300).optional(),
+        readingTime: z.number().optional(),
+        isDraft: z.boolean()
+    })
+})
+
+const experience = defineCollection({
+    loader: file("src/content/resume/experience.yaml"),
+    schema: z.object({
+        title: z.string().max(120),
+        timeline: z.string().max(20),
+        description: z.string().max(700)
+    })
+})
+
+const education = defineCollection({
+    loader: file("src/content/resume/education.yaml"),
+    schema: z.object({
+        title: z.string().max(120),
+        timeline: z.string().max(20),
+        school: z.string().max(120)
+    })
+})
+
+const skillsAndTools = defineCollection({
+    loader: file("src/content/skills-and-tools/skillsAndTools.yaml"),
+    schema: z.object({
+        title: z.string().max(70),
+        items: z.array(z.string())
+    })
+})
+
+
+export const collections = { projects, blog, experience, education, skillsAndTools };

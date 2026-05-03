@@ -1,0 +1,27 @@
+---
+// assets
+import Calendar from "../../assets/icons/Calendar.astro";
+
+// components
+import Text from "../elements/Text.astro";
+import Heading from "../elements/Heading.astro";
+
+const { title, timeline, description } = Astro.props;
+
+---
+
+<div class="border-2 border-base-900">
+    <div class="bg-base-900 p-16 flex flex-col gap-16">
+        <Heading tagName="h3" tagSize="h3">{title}</Heading>
+        <div class="flex flex-row gap-32">
+            <div class="flex flex-row gap-8 text-base-100 items-center">
+                <Calendar width={20} height={20} fill="currentColor" />
+                <Text variant={'sm'} class="text-base-500">{timeline}</Text>
+            </div>
+        </div>
+    </div>
+    <div class="p-16">
+        <Text variant={'normal'} class="text-base-400">{description}</Text>
+    </div>
+</div>
+

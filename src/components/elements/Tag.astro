@@ -1,0 +1,10 @@
+---
+// components
+import Text from "../elements/Text.astro";
+
+// props
+const { title } = Astro.props;
+---
+<div class="p-8 bg-base-900 text-base-400">
+    <Text variant={'sm'}>{title}</Text>
+</div>

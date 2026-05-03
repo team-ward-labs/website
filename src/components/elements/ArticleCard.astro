@@ -1,0 +1,42 @@
+---
+// assets
+import Calendar from "../../assets/icons/Calendar.astro";
+import Tag from "../../assets/icons/Tag.astro";
+import Hourglass from "../../assets/icons/Hourglass.astro";
+
+// utils
+import { formatDate } from "../../utils/formatDate";
+
+// components
+import Text from "../elements/Text.astro";
+import Heading from "../elements/Heading.astro";
+
+// props
+const { title, publishedDate, slug, category, readingTime } = Astro.props;
+
+const articleInfo = [
+    { icon: Calendar, text: formatDate(publishedDate) },
+    { icon: Tag, text: `#${category}` },
+    { icon: Hourglass, text: `${readingTime} min read`}
+]
+---
+
+<a href=`/blog/${slug}` class="group border-2 border-base-950 hover:border-base-800 hover:drop-shadow-md">
+    <div class="bg-base-900 group-hover:bg-base-950 p-16 flex flex-col gap-16">
+        <Heading tagName="h3" tagSize="h3">{title}</Heading>
+        <div class="flex md:flex-row md:gap-32 flex-col gap-16 w-full">
+            {
+                articleInfo.map((info) => {
+                    const Icon = info.icon;
+                    return (
+                        <div class="flex flex-row gap-8 text-base-100">
+                            <Icon width={20} height={20} fill="currentColor" />
+                            <Text variant={'sm'} class="text-base-400">{info.text}</Text>
+                        </div>
+                    )
+                })
+            }
+        </div>
+    </div>    
+</a>
+

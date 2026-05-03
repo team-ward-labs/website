@@ -1,0 +1,26 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+// styling for each heading
+const headingOptions = {
+    h1: "text-32/5 uppercase",
+    h2: "text-24/5 uppercase",
+    h3: "text-24/5 capitalize",
+    h4: "text-20/5 capitalize",
+    h5: "text-16/5 capitalize",
+    h6: "text-14/5 capitalize"
+}
+
+interface Props extends HTMLAttributes<'h1'> {
+    tagName: keyof typeof headingOptions;
+    tagSize: keyof typeof headingOptions;
+};
+
+const { tagName, tagSize, class: className, ...rest} = Astro.props;
+const Tag = tagName;
+
+// common styling for each heading
+const baseStyle = "font-pixels text-base-200"
+---
+
+<Tag class:list={[baseStyle, headingOptions[tagSize], className]}{...rest}><slot /></Tag>

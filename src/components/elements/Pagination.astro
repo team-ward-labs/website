@@ -1,0 +1,25 @@
+---
+// components
+import Link from "../elements/Link.astro";
+
+// props
+type Props = {
+    prev?: string;
+    next?: string;
+}
+
+const { prev, next } = Astro.props;
+---
+<div class="flex flex-row justify-between gap-32 items-center">
+    {
+        prev && (
+            <Link variant={'inline'} href={prev} text="Previous Page"/>
+        )
+    }
+    {
+        next && (
+            <Link variant={'inline'} href={next} text="Next Page"/>
+        )
+    }   
+</div>
+ 

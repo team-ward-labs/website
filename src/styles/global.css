@@ -1,70 +1,65 @@
 @import "tailwindcss";
-@import "./typography.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@theme {
+    /* FONTS */
+    --font-pixels: var(--font-pixels);
+    --font-mono: var(--font-mono);
 
-:root,
-html[data-theme="light"] {
-  --background: #ffffff;
-  --foreground: #142233;
-  --accent: #0a8068;
-  --muted: #e8f0ed;
-  --border: #cfddd6;
-}
+    /* COLORS — vintage scientific palette derived from TWL logo
+       (deep navy --950 ↔ amber/sepia mid-tones ↔ cream --100/-50) */
+    --color-base-50:  oklch(0.965 0.025 88);   /* lightest cream */
+    --color-base-100: oklch(0.930 0.038 87);   /* cream (logo background) */
+    --color-base-200: oklch(0.870 0.045 82);   /* pale cream-amber */
+    --color-base-300: oklch(0.800 0.060 75);   /* pale amber */
+    --color-base-400: oklch(0.720 0.085 70);   /* light amber */
+    --color-base-500: oklch(0.620 0.140 65);   /* amber accent */
+    --color-base-600: oklch(0.520 0.110 65);   /* sepia */
+    --color-base-700: oklch(0.420 0.075 75);   /* deep sepia */
+    --color-base-800: oklch(0.330 0.050 230);  /* muted blue-brown bridge */
+    --color-base-900: oklch(0.270 0.045 257);  /* navy mid */
+    --color-base-950: oklch(0.220 0.045 257);  /* deep navy (logo background) */
 
-html[data-theme="dark"] {
-  --background: #142233;
-  --foreground: #eaedf3;
-  --accent: #5dd4b0;
-  --muted: #243349;
-  --border: #2f4565;
-}
+    /* TEXT SIZES */
+    --text-216: 13.5rem;
+    --text-128: 8rem;
+    --text-96: 6rem;
+    --text-80: 5rem;
+    --text-64: 4rem;
+    --text-48: 3rem;
+    --text-40: 2.5rem;
+    --text-32: 2rem;
+    --text-24: 1.5rem;
+    --text-20: 1.25rem;
+    --text-16: 1rem;
+    --text-14: 0.875rem;
+    --text-12: 0.75rem;
 
-@theme inline {
-  --font-app: var(--font-google-sans-code);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-}
+     /* SPACING */
+    --spacing-224: 14rem;
+    --spacing-144: 9rem;
+    --spacing-128: 8rem;
+    --spacing-104: 6.5rem;
+    --spacing-96: 6rem;
+    --spacing-88: 5.5rem;
+    --spacing-80: 5rem;
+    --spacing-72: 4.5rem;
+    --spacing-64: 4rem;
+    --spacing-56: 3.5rem;
+    --spacing-48: 3rem;
+    --spacing-40: 2.5rem;
+    --spacing-32: 2rem;
+    --spacing-24: 1.5rem;
+    --spacing-16: 1rem;
+    --spacing-8: 0.5rem;
+    --spacing-4: 0.25rem;
 
-@layer base {
-  * {
-    @apply border-border outline-accent/75;
-    scrollbar-width: auto;
-    scrollbar-color: var(--color-muted) transparent;
-  }
-  html {
-    @apply overflow-y-scroll scroll-smooth;
-  }
-  body {
-    @apply flex min-h-svh flex-col bg-background font-app text-foreground selection:bg-accent/75 selection:text-background;
-  }
-  a,
-  button {
-    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
-  }
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
-}
+    /* DROP SHADOW — soft amber for "phosphor" glow against navy */
+    --drop-shadow-md: 0 0px 5px oklch(0.450 0.110 65);
 
-@utility max-w-app {
-  @apply max-w-3xl;
-}
-
-@utility app-layout {
-  @apply mx-auto w-full max-w-app px-4;
-}
-
-.active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-8;
-}
-
-/* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
-/* Anything that has been anchored to should have extra scroll margin */
-:target {
-  scroll-margin-block: 1rem;
+    /* BREAKPOINTS */
+    --breakpoint-xsm: 320px;
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1200px;
+    --breakpoint-xl: 1440px;
 }

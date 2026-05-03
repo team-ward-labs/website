@@ -1,0 +1,46 @@
+---
+// layout
+import Layout from "../../layout/Layout.astro"
+
+// utils
+import { formatDate } from "../../utils/formatDate";
+
+// components
+import Section from "../../components/elements/Section.astro";
+
+// routing
+import { type GetStaticPaths } from "astro";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+export const getStaticPaths = (async () => {
+    const blog = await getCollection("blog");
+    return blog.map((article) => ({
+        params: {
+            page: article.data.slug
+        },
+        props: {
+            article
+        }
+    }))
+}) satisfies GetStaticPaths;
+
+// props
+const { article } = Astro.props;
+const { Content } = await render(article);
+const { title, category, publishedDate } = article.data;
+---
+
+<Layout
+    title={title}
+    description=""
+    ogImage=""
+>
+    <Section
+        title=`Published On: ${formatDate(publishedDate)}`
+        titleHeading=`#${category}`
+    >
+    <div class="markdown-content flex flex-col gap-24">
+        <Content />
+    </div>
+    </Section>
+</Layout>

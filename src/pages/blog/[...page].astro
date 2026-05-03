@@ -1,0 +1,52 @@
+---
+// layout
+import Layout from "../../layout/Layout.astro";
+
+// utils
+import { getReadingTime } from "../../utils/readingTime";
+
+// components
+import Section from "../../components/elements/Section.astro";
+import ArticleCard from "../../components/elements/ArticleCard.astro";
+import Pagination from "../../components/elements/Pagination.astro";
+
+// routing
+import { type GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+export const getStaticPaths = (async ({paginate}) => {
+    const blog = await getCollection("blog");
+    const blogWithReadingTime = blog.map((article) => ({
+        ...article,
+        readingTime: getReadingTime(article.body ?? "")
+    }));
+    return paginate(blogWithReadingTime, {pageSize: 12})
+}) satisfies GetStaticPaths;
+
+// props
+const { page } = Astro.props;
+---
+
+<Layout
+    title="Blog"
+    description="Latest Articles about a variety of topics."
+    ogImage=""
+>
+    <Section
+        aria-label="Blog"
+        title="Blog"
+        titleHeading="Thoughts, Ideas, Feelings, etc"
+    >
+        {
+            page.data.map((article) => (
+                <ArticleCard
+                    title={article.data.title}
+                    publishedDate={article.data.publishedDate}
+                    slug={article.data.slug}
+                    category={article.data.category}
+                    readingTime={article.readingTime}
+                />
+            ))
+        }
+        <Pagination prev={page.url.prev} next={page.url.next} />
+    </Section>
+</Layout>

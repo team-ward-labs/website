@@ -1,0 +1,37 @@
+---
+// assets
+import "../styles/global.css";
+import "../styles/markdown.css";
+
+// components
+import Wrapper from "../components/global/Wrapper.astro";
+import BaseHead from "../components/global/BaseHead.astro";
+import Header from "../components/global/Header.astro";
+import Footer from "../components/global/Footer.astro";
+import Heading from "../components/elements/Heading.astro";
+
+const {title, description, titleTemplate, siteName, ogImage, twitterSite, themeColor, locale, ...seoProps} = Astro.props;
+---
+<html lang="en">
+	<BaseHead 
+		title={title}
+      	description={description}
+    	titleTemplate={titleTemplate}
+      	siteName={siteName}
+      	ogImage={ogImage}
+      	twitterSite={twitterSite}
+      	themeColor={themeColor}
+      	locale={locale}
+      	{...seoProps}
+	/>
+	<body class="bg-base-950">
+		<Wrapper class="min-h-full">
+			<Header />
+			<main class="md:px-32 px-16 flex flex-col gap-56">
+				<Heading tagName="h1" tagSize="h1">{title}</Heading>
+            	<slot />
+        	</main>
+        	<Footer />
+		</Wrapper>
+	</body>
+</html>
