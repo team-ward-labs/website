@@ -9,6 +9,7 @@ import { getReadingTime } from "../../utils/readingTime";
 import Section from "../../components/elements/Section.astro";
 import ArticleCard from "../../components/elements/ArticleCard.astro";
 import Pagination from "../../components/elements/Pagination.astro";
+import Publications from "../../components/sections/Publications.astro";
 
 // routing
 import { type GetStaticPaths } from "astro";
@@ -31,6 +32,8 @@ const { page } = Astro.props;
     description="Latest Articles about a variety of topics."
     ogImage=""
 >
+    {page.url.prev === undefined && <Publications />}
+
     <Section
         aria-label="Blog"
         title="Blog"

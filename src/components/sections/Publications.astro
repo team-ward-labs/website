@@ -1,0 +1,120 @@
+---
+// components
+import Section from "../elements/Section.astro";
+
+// ACS-style references from Joe Ward's CV (2026), with DOIs verified via
+// CrossRef where available. Listed newest first.
+type Pub = {
+  id: number;
+  authors: string;
+  title: string;
+  journal?: string;
+  year?: string;
+  volume?: string;
+  issue?: string;
+  pages?: string;
+  doi?: string;
+  note?: string;
+  citations?: number;
+};
+
+const publications: Pub[] = [
+  {
+    id: 7,
+    authors: "Han, Y.; Kydd, M. K.; Ward, J. S.; Tewari, A.",
+    title: "Teaching Machine Olfaction in an Undergraduate Deep Learning Course: A Pilot Integrating Chemistry, Machine Learning, and Sensory Evaluation.",
+    journal: "Journal of Statistics and Data Science Education",
+    year: "2025",
+    note: "In Press",
+  },
+  {
+    id: 6,
+    authors: "Carmel, J. H.; Harrington, D. G.; Posey, L. A.; Ward, J. S.; Pollock, A. M.; Cooper, M. M.",
+    title: "Helping Students 'Do Science': Characterizing Scientific Practices in General Chemistry Laboratory Curricula.",
+    journal: "J. Chem. Ed.",
+    year: "2019",
+    volume: "96",
+    issue: "3",
+    pages: "423–434",
+    doi: "10.1021/acs.jchemed.8b00912",
+    citations: 68,
+  },
+  {
+    id: 4,
+    authors: "Carmel, J. H.; Ward, J. S.; Cooper, M. M.",
+    title: "A Glowing Recommendation: A Project-Based Cooperative Laboratory Activity to Promote Use of the Scientific and Engineering Practices.",
+    journal: "J. Chem. Ed.",
+    year: "2017",
+    volume: "94",
+    issue: "5",
+    pages: "626–631",
+    doi: "10.1021/acs.jchemed.6b00628",
+    note: "Referenced in Org. Synth. 2020, 97, 189–206.",
+  },
+  {
+    id: 3,
+    authors: "Luster-Teasley, S. L.; … Ward, J. S.; et al.",
+    title: "Effect of Byproducts From the Ozonation of Pyrene… on Gap Junction Intercellular Communication and Neutrophil Function.",
+    journal: "Environ. Toxicol. Chem.",
+    year: "2005",
+    volume: "24",
+    issue: "3",
+    pages: "733–740",
+    doi: "10.1897/04-679.1",
+    citations: 10,
+  },
+  {
+    id: 2,
+    authors: "Maleczka, R. E., Jr.; Terrell, L. R.; Geng, F.; Ward, J. S., III.",
+    title: "Total Synthesis of Proposed Amphidinolide A via a Highly Selective Ring–Closing Metathesis.",
+    journal: "Org. Lett.",
+    year: "2002",
+    volume: "4",
+    pages: "2841–2844",
+    doi: "10.1021/ol0262284",
+    citations: 96,
+  },
+  {
+    id: 1,
+    authors: "Terrell, L. R.; Ward, J. S., III; Maleczka, R. E., Jr.",
+    title: "Synthetic Studies Toward Amphidinolide A: Synthesis of Fully Functionalized Subunits.",
+    journal: "Tetrahedron Lett.",
+    year: "1999",
+    volume: "40",
+    pages: "3097–3100",
+    doi: "10.1016/s0040-4039(99)00438-4",
+    citations: 26,
+  },
+];
+---
+
+<Section
+  aria-label="Publications"
+  title="Publications"
+  titleHeading="Refereed publications"
+>
+  <ol class="flex flex-col gap-16 list-decimal pl-24 font-mono text-base-300 leading-relaxed">
+    {publications.map((p) => (
+      <li class="pl-8 text-16">
+        <span class="text-base-200">{p.authors}</span>{" "}
+        <span class="text-base-100">"{p.title}"</span>
+        {p.journal && <> <span class="italic text-base-400">{p.journal}</span></>}
+        {p.year && <> <strong class="text-base-200">{p.year}</strong></>}
+        {p.volume && <>, <span class="italic text-base-400">{p.volume}</span></>}
+        {p.issue && <> ({p.issue})</>}
+        {p.pages && <>, {p.pages}</>}
+        {p.journal ? "." : ""}
+        {p.doi && (
+          <> <a
+            href={`https://doi.org/${p.doi}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-base-500 hover:text-base-400 underline decoration-dotted"
+          >DOI: {p.doi}</a></>
+        )}
+        {p.note && <span class="text-base-600"> ({p.note})</span>}
+        {p.citations && <span class="text-base-700"> · {p.citations} citations</span>}
+      </li>
+    ))}
+  </ol>
+</Section>
