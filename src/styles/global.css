@@ -12,10 +12,10 @@
     --color-base-200: oklch(0.870 0.045 82);   /* pale cream-amber */
     --color-base-300: oklch(0.800 0.060 75);   /* pale amber */
     --color-base-400: oklch(0.720 0.085 70);   /* light amber */
-    --color-base-500: oklch(0.620 0.140 65);   /* amber accent */
-    --color-base-600: oklch(0.520 0.110 65);   /* sepia */
-    --color-base-700: oklch(0.420 0.075 75);   /* deep sepia */
-    --color-base-800: oklch(0.330 0.050 230);  /* muted blue-brown bridge */
+    --color-base-500: oklch(0.640 0.140 65);   /* amber accent */
+    --color-base-600: oklch(0.580 0.120 65);   /* warm amber (footer) */
+    --color-base-700: oklch(0.520 0.110 70);   /* mid amber (section eyebrows) */
+    --color-base-800: oklch(0.400 0.060 230);  /* muted blue-brown bridge */
     --color-base-900: oklch(0.270 0.045 257);  /* navy mid */
     --color-base-950: oklch(0.220 0.045 257);  /* deep navy (logo background) */
 
