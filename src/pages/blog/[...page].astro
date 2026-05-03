@@ -28,16 +28,16 @@ const { page } = Astro.props;
 ---
 
 <Layout
-    title="Blog"
-    description="Latest Articles about a variety of topics."
+    title="Writing"
+    description="Posts, notes, and refereed publications from Team Ward Labs."
     ogImage=""
 >
     {page.url.prev === undefined && <Publications />}
 
     <Section
-        aria-label="Blog"
-        title="Blog"
-        titleHeading="Thoughts, Ideas, Feelings, etc"
+        aria-label="Writing"
+        title="Writing"
+        titleHeading="Posts and notes"
     >
         {
             page.data.map((article) => (
