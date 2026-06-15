@@ -26,3 +26,66 @@
     color: var(--color-base-100);
     font-size: 20px;
 }
+
+/* Lists — Tailwind preflight strips list styling, and the default text color
+   is unreadable on the navy background; match the paragraph treatment. */
+.markdown-content ul,
+.markdown-content ol {
+    font-family: var(--font-mono);
+    color: var(--color-base-400);
+    font-size: 1rem;
+    line-height: 150%;
+    padding-left: 1.5rem;
+}
+
+.markdown-content ul { list-style: disc; }
+.markdown-content ol { list-style: decimal; }
+
+.markdown-content li { color: var(--color-base-400); margin-bottom: 0.4rem; }
+.markdown-content li::marker { color: var(--color-base-500); }
+
+/* Emphasis */
+.markdown-content strong { color: var(--color-base-200); font-weight: 700; }
+.markdown-content em { color: var(--color-base-300); }
+
+/* Inline code (leave fenced <pre><code> to the syntax highlighter) */
+.markdown-content :not(pre) > code {
+    font-family: var(--font-mono);
+    color: var(--color-base-200);
+    background-color: var(--color-base-900);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.markdown-content pre {
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+/* Tables */
+.markdown-content table {
+    font-family: var(--font-mono);
+    color: var(--color-base-400);
+    font-size: 0.95rem;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.markdown-content th,
+.markdown-content td {
+    border: 1px solid var(--color-base-800);
+    padding: 0.45rem 0.7rem;
+    text-align: left;
+}
+
+.markdown-content th { color: var(--color-base-200); }
+
+/* Blockquotes */
+.markdown-content blockquote {
+    border-left: 3px solid var(--color-base-700);
+    padding-left: 1rem;
+    color: var(--color-base-400);
+    font-family: var(--font-mono);
+}
