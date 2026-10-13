@@ -1,0 +1,31 @@
+---
+// layout
+import Layout from "../layout/Layout.astro"
+
+// components
+import Section from "../components/elements/Section.astro";
+import Text from "../components/elements/Text.astro";
+import Link from "../components/elements/Link.astro";
+---
+
+<Layout
+    title="Privacy Policy"
+    description="Privacy policy for Team Ward Labs"
+    ogImage=""
+>
+    <Section
+        aria-label="Privacy Policy"
+        title="Privacy Policy"
+        titleHeading="Privacy Policy"
+    >
+        <div class="flex flex-col gap-16 text-base-400">
+            <Text variant={'sm'}>Last updated: October 12, 2026</Text>
+            <Text variant={'normal'}>Team Ward Labs runs personal, private tools for its owner's own use. This policy covers teamwardlabs.com and any personal applications that sign in with a Google account.</Text>
+            <Text variant={'normal'}>Data access: when an application connects to a Google account, it accesses only that account's own data (such as email), only with the account owner's explicit consent, and only to perform the tasks the owner requests.</Text>
+            <Text variant={'normal'}>Data use: Google user data is used solely to provide those features. It is not sold, shared with third parties, used for advertising, or used to train AI models. Data is processed on the owner's own hardware and is not stored by us beyond what is needed to complete a request.</Text>
+            <Text variant={'normal'}>Website: this site does not use advertising or tracking cookies and does not collect personal information from visitors. Basic, anonymous request logs may be kept by the hosting provider (Cloudflare) for security and performance.</Text>
+            <Text variant={'normal'}>Revoking access: access can be revoked at any time at <Link variant="inline" href="https://myaccount.google.com/permissions" text="myaccount.google.com/permissions" newWindow />.</Text>
+            <Text variant={'normal'}>Questions: contact <Link variant="inline" href="mailto:jward@teamwardlabs.com" text="jward@teamwardlabs.com" />.</Text>
+        </div>
+    </Section>
+</Layout>
